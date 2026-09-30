@@ -1,0 +1,10 @@
+services:
+  spopplesync:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    volumes:
+      - ./app:/app/app
+    environment:
+      - TZ=America/Phoenix
