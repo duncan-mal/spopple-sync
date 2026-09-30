@@ -1,6 +1,6 @@
 # Spopple Sync
 ***
-### Dont you hate how apple home doesnt natively support spotify? Not anymore!!
+### Don't you hate how apple home doesnt natively support spotify? Not anymore!!
 
 ## About
 ***
@@ -30,7 +30,7 @@ this will create a new directory `./app` which will contain logs and the config 
 ```bash
 vim app/config.ini
 ```
-follow the wiki page explaining each value and where to get them
+follow the [Wiki Page](https://github.com/duncan-mal/spopple-sync/wiki/Config-Values) explaining each value and where to get them
 #### Step 5: Restart docker container
 ```bash
 docker compose start
