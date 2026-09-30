@@ -6,7 +6,7 @@
 ***
 Spopple Sync bridges the gap between spotify and apple home by autonomously syncing your spotify playlists with a streaming service Apple Home does support (currently only YouTube Music).
 
-Spopple Sync is meant to be ran via a docker image, and can currently only support 1 playlist per container.
+Spopple Sync is meant to be run via a docker image, and can currently only support 1 playlist per container.
 
 ## Installation: Docker
 ***
