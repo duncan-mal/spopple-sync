@@ -37,3 +37,30 @@ docker compose start
 ```
 
 from here on it should now be syncing your playlist from Spotify to YouTube music
+
+
+## Installation: Dockerless
+#### Step 1: clone the repo
+```bash
+git clone https://github.com/duncan-mal/spopple-sync.git
+```
+
+#### Step 2: CD into repo
+```bash
+cd spopple-sync
+```
+
+#### Step 3: run for initial setup
+```bash
+python main.py
+```
+
+#### Step 4: Edit config file with needed values
+```bash
+vim app/config.ini
+```
+follow the [Wiki Page](https://github.com/duncan-mal/spopple-sync/wiki/Config-Values) explaining each value and where to get them
+#### Step 5: Run Application
+```bash
+python main.py
+```
