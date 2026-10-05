@@ -54,8 +54,11 @@ def add_song(video_id, playlist_id):
         playlistId=playlist_id,
         videoIds=[video_id],
     )
-    if response["status"] == "STATUS_SUCCEEDED":
+    if response == "STATUS_SUCCEEDED":
         return True
+    if response["status"] == "STATUS_FAILED":
+        if response["actions"][0]["addToToastAction"]["item"]["notificationActionRenderer"]["responseText"]["runs"][0]["text"] == "This track is already in the playlist":
+            return True
     return False
 
 def remove_song(video_obj, playlist_id):
@@ -74,7 +77,7 @@ def get_youtube_playlist(playlist_id):
             limit=None
         )["tracks"]
         return playlist
-    except (KeyError, YTMusicError) as e:
+    except (KeyError, YTMusicError):
         logging.warning(f"Could not read playlist (treating as empty)")
         return []
 
