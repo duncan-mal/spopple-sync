@@ -37,4 +37,4 @@ from here on it should now be syncing your playlist from Spotify to YouTube musi
 
 
 ## Installation: Dockerless
-Refer to the Wiki Page
+Refer to the [Wiki Page](https://github.com/duncan-mal/spopple-sync/wiki/Dockerless-Usage)
