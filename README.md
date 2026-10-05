@@ -1,3 +1,6 @@
+<img width="750" height="250" alt="SpoppleSync Logo" src="https://github.com/user-attachments/assets/bd2d6a10-87b7-43f6-90a4-12726e6a6ba7" />
+
+
 # Spopple Sync
 ### Don't you hate how apple home doesnt natively support spotify? Not anymore!!
 
