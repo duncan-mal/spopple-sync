@@ -4,9 +4,9 @@ from pathlib import Path
 from ytmusicapi import setup
 from ytmusicapi import YTMusic
 from ytmusicapi.exceptions import YTMusicError
-
 from utils import config
 from utils import err_codes as err
+from utils import sqlite as sql
 
 def get_youtube_client():
 
@@ -48,16 +48,17 @@ def find_single_song_id(song):
     except IndexError:
         return None
 
-def add_song(video_id, playlist_id):
+def add_song(song, playlist_id):
 
     response = get_youtube_client().add_playlist_items(
         playlistId=playlist_id,
-        videoIds=[video_id],
+        videoIds=[song["YoutubeID"]],
     )
     if response == "STATUS_SUCCEEDED":
         return True
     if response["status"] == "STATUS_FAILED":
         if response["actions"][0]["addToToastAction"]["item"]["notificationActionRenderer"]["responseText"]["runs"][0]["text"] == "This track is already in the playlist":
+            logging.warning(f"{song["Title"]} by {song["Artist"]} already in playlist, ONLY adding to internal database")
             return True
     return False
 

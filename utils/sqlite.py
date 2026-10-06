@@ -41,7 +41,7 @@ def add_song(song):
     conn = get_database()
     song = yc.find_single_song_id(song)
 
-    if yc.add_song(song["YoutubeID"], config_p.get("YouTube_Music","playlist_id")):
+    if yc.add_song(song, config_p.get("YouTube_Music","playlist_id")):
         if song is None:
             return
 
@@ -96,6 +96,10 @@ def trim_extra(spotify_playlist, youtube_playlist):
 
     return len(extras)
 
+def get_song(isrc):
+    conn = get_database()
+    cur = conn.execute("SELECT * FROM songs WHERE isrc = ?", (isrc,))
+    return cur.fetchone()
 
 
 

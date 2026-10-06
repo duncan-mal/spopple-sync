@@ -18,7 +18,6 @@ def main():
     )
 
     logging.info("SpoppleSync started")
-
     #Check for config file's existence, read if exists
     if not Path("app/config.ini").is_file():
         logging.warning("Config file not found, creating")
@@ -32,6 +31,8 @@ def main():
     file_handler = logging.FileHandler(config.config_p.get("Service", "log_path"), "w")
     file_handler.setFormatter(logging.Formatter("[%(asctime)s | %(levelname)s] %(message)s"))
     logging.getLogger().addHandler(file_handler)
+
+
 
     #Test client connections
     sc.test_spotify_client()
