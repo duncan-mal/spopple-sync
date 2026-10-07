@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 from ytmusicapi import setup
 from ytmusicapi import YTMusic
-from ytmusicapi.exceptions import YTMusicError
+from ytmusicapi.exceptions import YTMusicError, YTMusicServerError
 from utils import config
 from utils import err_codes as err
 from utils import sqlite as sql
@@ -78,9 +78,13 @@ def get_youtube_playlist(playlist_id):
             limit=None
         )["tracks"]
         return playlist
-    except (KeyError, YTMusicError):
+    except (KeyError, YTMusicError) as e:
         logging.warning(f"Could not read playlist (treating as empty)")
+        logging.debug(e)
         return []
+    except (YTMusicServerError) as e:
+        logging.critical("Could not connect to YouTube Music (most likely cause is yout auth expired, refresh headers)")
+        logging.debug(e)
 
 
 
